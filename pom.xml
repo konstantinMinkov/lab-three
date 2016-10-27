@@ -12,6 +12,7 @@
         <mockito-version>2.2.1</mockito-version>
         <junit-version>4.12</junit-version>
         <hamcrest-version>1.3</hamcrest-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
