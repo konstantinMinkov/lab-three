@@ -7,13 +7,13 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class SimpleTest {
+public class SimpleMathServiceTest {
 
-    private static SimpleClassToTest classToTest;
+    private static MathService classToTest;
 
     @BeforeClass
     public static void initClass() {
-        classToTest = new SimpleClassToTest();
+        classToTest = new SimpleMathService();
     }
 
     @Test
