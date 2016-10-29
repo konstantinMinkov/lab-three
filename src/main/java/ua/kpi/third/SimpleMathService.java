@@ -1,10 +1,14 @@
 package ua.kpi.third;
 
 
-public class SimpleClassToTest {
+public class SimpleMathService implements MathService {
 
     public int square(int of) {
         return of * of;
+    }
+
+    public double squareRoot(int of) {
+        return Math.sqrt(of);
     }
 
     public boolean isPositive(int number) {
