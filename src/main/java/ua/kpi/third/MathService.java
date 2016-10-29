@@ -7,5 +7,7 @@ public interface MathService {
 
     double squareRoot(int of);
 
+    double squareRoot(float of);
+
     boolean isPositive(int number);
 }

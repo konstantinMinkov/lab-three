@@ -10,6 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by Vladyslav on 29.10.2016.
  */
 public class SimpleGeronsTest {
+
     private static GeronsFormula geronsFormulaTest;
 
     @BeforeClass

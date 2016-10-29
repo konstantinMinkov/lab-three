@@ -22,7 +22,7 @@ public class MockGeronsTest {
         when(mathService.isPositive(4)).thenReturn(true);
         when(mathService.isPositive(5)).thenReturn(true);
         when(mathService.isPositive(-5)).thenReturn(false);
-        when(mathService.squareRoot(36)).thenReturn(6.0);
+        when(mathService.squareRoot(36.0f)).thenReturn(6.0);
         geronsFormula = new GeronsFormula(mathService);
     }
 

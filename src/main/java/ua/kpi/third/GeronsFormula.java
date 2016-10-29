@@ -19,15 +19,8 @@ public class GeronsFormula {
         if(!mathService.isPositive(sideThree))
             throw new IllegalArgumentException();
 
-        final int halfPerim = (sideOne + sideTwo + sideThree) / 2;
-        final double area = mathService.squareRoot(halfPerim * (halfPerim - sideOne) *
+        final float halfPerim = (float) (sideOne + sideTwo + sideThree) / 2;
+        return mathService.squareRoot(halfPerim * (halfPerim - sideOne) *
                     (halfPerim - sideTwo) * (halfPerim - sideThree));
-        System.out.println(halfPerim * (halfPerim - sideOne) *
-                (halfPerim - sideTwo) * (halfPerim - sideThree));
-        return area;
     }
 }
-/*
-3+4+5
-6*3*2*1
-6*/
