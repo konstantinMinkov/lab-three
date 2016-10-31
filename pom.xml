@@ -8,6 +8,10 @@
     <artifactId>lab-three</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:https://github.com/konstantinMinkov/lab-three.git</connection>
+    </scm>
+
     <properties>
         <mockito-version>2.2.1</mockito-version>
         <junit-version>4.12</junit-version>
@@ -53,27 +57,68 @@
     </dependencies>
 
     <build>
+
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                        <configuration>
+                            <shortRevisionLength>5</shortRevisionLength>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.lukegb.mojo</groupId>
+                <artifactId>gitdescribe-maven-plugin</artifactId>
+                <version>3.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>gitdescribe</goal>
+                        </goals>
+                        <configuration>
+                            <extraArguments>
+                                <param>--tags</param>
+                            </extraArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.5</version>
                 <configuration>
-                    <skipEmptyReport>false</skipEmptyReport>
+                    <failOnViolation>true</failOnViolation>
+                    <minimumTokens>10</minimumTokens>
+                    <targetJdk>1.8</targetJdk>
                 </configuration>
                 <executions>
                     <execution>
                         <phase>validate</phase>
                         <goals>
-                            <goal>pmd</goal>
+                            <goal>cpd</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>3.1.0</version>
             </plugin>
         </plugins>
     </build>
